@@ -61,13 +61,15 @@ jobs:
         run: bun run test:coverage
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        if: matrix.node-version == '20.x'
+        uses: codecov/codecov-action@v5
+        if: matrix.node-version == '24.x'
         with:
           files: ./coverage/lcov.info
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: yinheli/envmerge
 
   build:
     runs-on: ubuntu-latest
