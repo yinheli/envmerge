@@ -8,7 +8,7 @@ guidelines and instructions for contributing.
 ### Prerequisites
 
 - [Bun](https://bun.sh) v1.0.0 or higher (recommended)
-- OR Node.js v18.0.0 or higher
+- OR Node.js v20.0.0 or higher
 - Git
 
 ### Getting Started
