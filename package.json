@@ -1,0 +1,67 @@
+{
+  "name": "@yinheli/envmerge",
+  "version": "0.1.0",
+  "description": "A CLI tool to merge multiple .env files while preserving comments and handling conflicts intelligently",
+  "type": "module",
+  "bin": {
+    "envmerge": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir=dist --target=node --format=esm && bun run build:types",
+    "build:types": "tsc --project tsconfig.build.json --declaration --emitDeclarationOnly",
+    "dev": "bun run src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "bun run typecheck && bun run test && bun run build"
+  },
+  "keywords": [
+    "env",
+    "environment",
+    "merge",
+    "dotenv",
+    "cli",
+    "config",
+    "environment-variables"
+  ],
+  "author": "yinheli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinheli/envmerge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yinheli/envmerge/issues"
+  },
+  "homepage": "https://github.com/yinheli/envmerge",
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/prompts": "^2.4.9",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "@vitest/coverage-v8": "^4.0.7",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.7"
+  },
+  "dependencies": {
+    "commander": "^14.0.2",
+    "prompts": "^2.4.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

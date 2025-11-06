@@ -1,0 +1,29 @@
+# Source files
+src/
+tests/
+*.test.ts
+*.spec.ts
+
+# Configuration files
+tsconfig.json
+vitest.config.ts
+.github/
+.vscode/
+
+# Test and coverage
+coverage/
+test-temp-*/
+
+# Development files
+*.env
+*.env.*
+!*.env.example
+.env-backup-*
+
+# Build artifacts
+*.tsbuildinfo
+
+# Misc
+.DS_Store
+*.swp
+*.swo
