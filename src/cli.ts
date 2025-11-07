@@ -97,9 +97,9 @@ async function mergeEnvFiles(
         }
 
         // Find matching variable in merged
-        const mergedBlock = findVariableBlock(merged, current.key);
+        const found = findVariableBlock(merged, current.key);
 
-        if (!mergedBlock || mergedBlock.value === current.value) {
+        if (!found || (found.value !== "" && found.value === current.value)) {
           current = current.next;
           continue;
         }
@@ -112,7 +112,7 @@ async function mergeEnvFiles(
         if (options.strategy === "interactive") {
           strategy = await resolveInteractively(
             current.key,
-            mergedBlock.value,
+            found.value,
             current.value,
           );
         } else if (options.strategy === "overwrite") {
@@ -120,8 +120,8 @@ async function mergeEnvFiles(
         }
 
         if (strategy === "overwrite") {
-          current.value = mergedBlock.value;
-          current.raw = `${current.key}=${quoteValue(mergedBlock.value)}`;
+          current.value = found.value;
+          current.raw = `${current.key}=${quoteValue(found.value)}`;
         }
 
         current = current.next;
