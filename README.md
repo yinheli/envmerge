@@ -101,18 +101,7 @@ envmerge --strategy keep .env.template .env
 envmerge .env.base .env.local .env
 ```
 
-When conflicts are detected, you'll see:
-
-```
-Found 2 conflict(s) to resolve:
-
-? How would you like to resolve conflicts?
-❯ Review each conflict individually
-  Overwrite all with source values
-  Keep all destination values
-```
-
-If you choose individual review:
+When conflicts are detected, If you choose individual review, you'll see:
 
 ```
 Conflict for key: DATABASE_URL
