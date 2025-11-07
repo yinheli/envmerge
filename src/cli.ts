@@ -168,7 +168,7 @@ export function createCLI(): Command {
     .description(
       "Merge multiple .env files while preserving comments and handling conflicts",
     )
-    .version("0.1.0")
+    .version("0.1.1")
     .argument(
       "<files...>",
       "Source .env files followed by destination file (last argument is destination)",

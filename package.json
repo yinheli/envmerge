@@ -1,6 +1,6 @@
 {
   "name": "@yinheli/envmerge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A CLI tool to merge multiple .env files while preserving comments and handling conflicts intelligently",
   "type": "module",
   "bin": {
